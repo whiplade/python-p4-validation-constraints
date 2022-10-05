@@ -6,8 +6,8 @@ from sqlalchemy import create_engine, Column, Integer, String
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker
 
-connection_string = "sqlite:///database.db"
-db   = create_engine(connection_string)
+connection = "sqlite:///database.db"
+db   = create_engine(connection)
 base = declarative_base()
 
 class Patient(base):
