@@ -71,6 +71,8 @@ Here we have a column CheckConstraint which makes sure we cannot add a
 that makes sure the death year is after the birth year or the death year is null
 (meaning that the patient is still alive).
 
+***
+
 ## Conclusion
 
 SQLAlchemy constraints allow us to control input at a database level. They allow
