@@ -47,21 +47,20 @@ CheckConstraint is passed directly through to the database. Some databases like
 MySQL do not support CheckConstraints.
 
 Here is an example of a Patient table that uses constraints to control input of
-`birth_year` and `death_year`. You can find the complete code in
-`bin/constraints.py`.
+`birth_year` and `death_year`.
 
 ```py
-class Patient(base):
+class Patient(db.Model):
     __tablename__ = 'patient'
-    name = Column(String(length=50), primary_key=True)
+    name = db.Column(db.String, primary_key=True)
     # Constraint defined at the Column level
-    birth_year = Column(Integer,
-                        CheckConstraint('birth_year < 2023'),
+    birth_year = db.Column(db.Integer,
+                        db.CheckConstraint('birth_year < 2023'),
                         nullable=False)
-    death_year = Column(Integer)
+    death_year = db.Column(db.Integer)
     # Constraint defined at the Table level
     __table_args__ = (
-        CheckConstraint('(death_year is NULL) or (death_year >= birth_year)'),
+        db.CheckConstraint('(death_year is NULL) or (death_year >= birth_year)'),
     )
 
 ```
