@@ -37,6 +37,7 @@ session.commit()
 
 p2 = Patient(name="Max", birth_year=2010, death_year=1950)
 session.add(p2)
+session.commit()
 
 
 
